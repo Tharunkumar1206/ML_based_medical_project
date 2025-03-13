@@ -4,9 +4,10 @@ from flask_cors import CORS
 import pandas as pd
 from skin import predict_skin_disease
 from chat import ask_question
-from mental_age import mental_age_bp  # Import the mental age blueprint
-from eye import eye_bp  # Import the eye disease blueprint
-from book import book_bp  # Import the book blueprint
+from mental_age import mental_age_bp  
+from eye import eye_bp  
+from book import book_bp  
+from video import video_bp
 
 # Initialize Flask app and configurations
 app = Flask(__name__)
@@ -15,7 +16,8 @@ CORS(app)
 # Register the blueprints
 app.register_blueprint(mental_age_bp)
 app.register_blueprint(eye_bp)
-app.register_blueprint(book_bp)  # Register the book blueprint
+app.register_blueprint(book_bp)  
+app.register_blueprint(video_bp)  
 
 df = pd.read_csv("model/drugs.csv")
 
